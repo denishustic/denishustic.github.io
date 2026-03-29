@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Uvod i Liste</title>
+</head>
+<body>
+    <a href="Uvod.html">Pravila</a> <br><br>
+    <a href="Liste.html">Povezivanje</a>
+</body>
+</html>
