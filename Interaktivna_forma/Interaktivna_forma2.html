@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<TITLE> Citanje pull-down i scroll liste </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+
+function savjet()
+{
+var indgrad=window.document.mojaforma.grad.selectedIndex;
+var izabgrad=window.document.mojaforma.grad.options[indgrad].text;
+
+var indauto=window.document.mojaforma.auto.selectedIndex;
+var izabauto=window.document.mojaforma.auto.options[indauto].text;
+alert("U gradu " + izabgrad + " se nalazi " + izabauto + ".");
+}
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM NAME="mojaforma" >
+U kojem se gradu nalazite?<BR>
+<SELECT NAME="grad" SIZE="1" >
+<OPTION> Krapina
+<OPTION> Zabok
+<OPTION> Zagreb
+</SELECT>
+
+<p>
+Koji auto vam se više dopada?<BR>
+<SELECT SIZE="3" NAME="auto" >
+<OPTION>Mclaren auto
+<OPTION>Lamborghini auto
+<OPTION>Chevrolet auto
+<OPTION>Landrover auto
+<OPTION>Jeep auto
+<OPTION>Opel auto
+</SELECT>
+</p>
+<INPUT TYPE="button" VALUE="Savjet" onClick="savjet();">
+</BODY>
+</HTML>

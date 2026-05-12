@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<TITLE> Citanje Radio buttona </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+function poruka()
+{
+    if (window.document.mojaforma.pitanje[0].checked == true ||
+        window.document.mojaforma.pitanje[4].checked == true)
+    {
+        alert("Izgleda da nemamo iste najdraže boje!!");
+    }
+
+    if (window.document.mojaforma.pitanje[1].checked == true || 
+        window.document.mojaforma.pitanje[2].checked == true || 
+        window.document.mojaforma.pitanje[3].checked == true)
+    {
+        alert("Imamo iste najdraže boje!!");
+    }
+}
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM NAME="mojaforma" onClick="poruka();">
+Koja vam je najdraža boja?<BR>
+
+<INPUT TYPE="radio" name="pitanje">
+Crvena<BR>
+<INPUT TYPE="radio" name="pitanje">
+Plava<BR>
+<INPUT TYPE="radio" name="pitanje">
+Narandžasta<BR>
+<INPUT TYPE="radio" name="pitanje">
+Žuta<BR>
+<INPUT TYPE="radio" name="pitanje">
+Zelena<BR>
+</FORM>
+</BODY>
+</HTML>
