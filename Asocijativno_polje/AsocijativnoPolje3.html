@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE> nestonesto </TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+var brojauta1=new Array();
+brojauta1["Audi"]="silver";
+brojauta1["Mercedes"]="gold";
+brojauta1["Opel"]="red";
+brojauta1["Skoda"]="navy";
+brojauta1["Landrover"]="indigo";
+brojauta1["Rangerover"]="blue";
+brojauta1["BMW"]="green";
+
+var brojauta2=new Array();
+brojauta2["Audi"]="green";
+brojauta2["Mercedes"]="silver";
+brojauta2["Opel"]="gold";
+brojauta2["Skoda"]="red";
+brojauta2["Landrover"]="navy";
+brojauta2["Rangerover"]="indigo";
+brojauta2["BMW"]="blue";
+
+function promjeniboju(paleta,ulaz)
+{
+var boja=paleta[ulaz];
+window.document.bgColor=boja;
+}
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<FORM NAME="mojaforma">
+<SELECT onChange="promjeniboju(brojauta2, this.options[this.selectedIndex].value);">
+<OPTION VALUE="Opel">Opel
+<OPTION VALUE="BMW">BMW
+<OPTION VALUE="Mercedes">Mercedes
+<OPTION VALUE="Audi">Audi
+<OPTION VALUE="Skoda">Škoda
+<OPTION VALUE="Landrover">Landrover
+<OPTION VALUE="Rangerover">Rangerover
+</SELECT>
+<P>
+
+</FORM>
+</BODY>
+</HTML>
