@@ -1,0 +1,180 @@
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vježba 11. Asocijativno polje Denis Hustic</title>
+    <style>
+        /* Izgled web stranice */
+        body {
+            background-color: #e9edfc; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 40px;
+            margin: 0;
+        }
+
+        /* forme */
+        .forma-container {
+            background-color: #E0F7FA; 
+            width: 320px;
+            padding: 20px;
+            margin-bottom: 30px;
+            
+            /* Zaobljeni rubovi s prefiksima */
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            
+            /* Sjena s prefiksima */
+            -moz-box-shadow: 5px 5px 10px #000;
+            -webkit-box-shadow: 5px 5px 10px #000;
+            box-shadow: 5px 5px 10px #000;
+            
+            /* promjena boje pozadine */
+            transition: background-color 0.3s ease; 
+        }
+
+        /* Padajući izbornik */
+        select {
+            background-color: #6e7f80; 
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* ispis brojeva */
+        .red-podataka {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .oznaka {
+            width: 80px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #222;
+        }
+
+        .polje-ispis {
+            background-color: #6e7f80;
+            height: 20px;
+            flex-grow: 1;
+            color: white;
+            padding: 2px 8px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Textarea */
+        textarea {
+            width: 100%;
+            height: 140px;
+            background-color: #6e7f80;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            box-sizing: border-box;
+            resize: none; 
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="forma-container" id="prva-forma">
+        <select id="odabirImena" onchange="ispisiBrojeve(); promijeniBojuPozadine();">
+            <option value="">odaberi ime....</option>
+            <option value="mario">Mario</option>
+            <option value="lucija">Lucija</option>
+            <option value="danijel">Danijel</option>
+        </select>
+
+        <div class="red-podataka">
+            <span class="oznaka">Tel. broj:</span>
+            <span class="polje-ispis" id="telBroj"></span>
+        </div>
+        <div class="red-podataka">
+            <span class="oznaka">Mob. broj:</span>
+            <span class="polje-ispis" id="mobBroj"></span>
+        </div>
+    </div>
+    <div class="forma-container">
+        <select id="odabirDana" onchange="ispisiKolegije();">
+            <option value="">odaberi dan....</option>
+            <option value="ponedjeljak">Ponedjeljak</option>
+            <option value="utorak">Utorak</option>
+            <option value="srijeda">Srijeda</option>
+        </select>
+
+        <textarea id="tekstKolegij" readonly></textarea>
+    </div>
+    <script>
+        const OsobniPodatci = {
+            mario: {
+                tel: "444-7777",
+                mob: "098 999 999",
+                bojaZadine: "#c8c8c8" 
+            },
+            lucija: {
+                tel: "444-8888",
+                mob: "095 111 111",
+                bojaZadine: "#e1815f" 
+            },
+            danijel: {
+                tel: "444-6666",
+                mob: "091 444 4444",
+                bojaZadine: "#959dd8"
+            }
+        };
+        const kolegij = {
+            ponedjeljak: "Uvod u elektroničko poslovanje!",
+            utorak: "Osnove elektrotehnike i mjerenja!!",
+            srijeda: "Oblikovanje web sadržaja!!!" 
+        };
+        function ispisiBrojeve() {
+            let odabrano = document.getElementById("odabirImena").value;
+            let telPolje = document.getElementById("telBroj");
+            let mobPolje = document.getElementById("mobBroj");
+
+            if (odabrano !== "" && OsobniPodatci[odabrano]) {
+                telPolje.innerText = OsobniPodatci[odabrano].tel;
+                mobPolje.innerText = OsobniPodatci[odabrano].mob;
+            } else {
+                telPolje.innerText = "";
+                mobPolje.innerText = "";
+            }
+        }
+        function promijeniBojuPozadine() {
+            let odabrano = document.getElementById("odabirImena").value;
+            let forma = document.getElementById("prva-forma");
+
+            if (odabrano !== "" && OsobniPodatci[odabrano]) {
+                forma.style.backgroundColor = OsobniPodatci[odabrano].bojaZadine;
+            } else {
+                forma.style.backgroundColor = "#E0F7FA";
+            }
+        }
+        function ispisiKolegije() {
+            let odabrano = document.getElementById("odabirDana").value.toLowerCase();
+            let textarea = document.getElementById("tekstKolegij");
+
+            if (odabrano !== "" && kolegij[odabrano]) {
+                textarea.value = kolegij[odabrano];
+            } else {
+                textarea.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
