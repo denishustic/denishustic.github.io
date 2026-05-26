@@ -1,0 +1,26 @@
+<html>
+<head>
+<TITLE> Vremenska petlja </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+
+var vrijeme;
+function promjena()
+{
+var broj=window.document.mojaforma.tekst.value;
+broj=parseInt(broj)+1;
+window.document.mojaforma.tekst.value=broj;
+vrijeme=setTimeout("promjena();",1000);
+}
+</SCRIPT>
+</head>
+  
+<body>
+<center>
+<FORM name="mojaforma">
+<input type="text" name="tekst" value=0><BR>
+<input type="button" value=" Kreni" onClick="promjena();">
+<input type="button" value="Stani" onClick="clearTimeout(vrijeme); ">
+</center>
+</FORM>
+</body>
+</html>

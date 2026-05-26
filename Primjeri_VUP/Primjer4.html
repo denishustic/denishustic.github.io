@@ -1,0 +1,61 @@
+<html>
+<head>
+<TITLE> Slide Show </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+
+var slike=new Array();
+slike[0]= new Image();
+slike[0].src="japan.jpg";
+
+slike[1]= new Image();
+slike[1].src="cocktail.jpg";
+
+slike[2]= new Image();
+slike[2].src="mclaren.jpg";
+
+slike[3]= new Image();
+slike[3].src="mountain.jpg";
+
+var vrijeme;
+var vrijeme2;
+var indeks=0;
+var indeks2=0;
+function zamjenisliku()
+{
+	window.document.mojaslika.src=slike[indeks].src;
+	indeks++
+	if (indeks >=slike.length)
+	{
+		indeks=0;
+	}
+	vrijeme=setTimeout("zamjenisliku();",2000);
+}
+function zamjenisliku2()
+{
+	window.document.mojaslika2.src=slike[indeks2].src;
+	indeks2++
+	if (indeks2 >=slike.length)
+	{
+		indeks2=0;
+	}
+	vrijeme2=setTimeout("zamjenisliku2();",500);
+}
+</SCRIPT>
+</head>
+  
+<body>
+<center>
+<img name="mojaslika" src="japan.jpg" height="300">
+
+<FORM>
+<input type="button" value="Start slide show" onClick="clearTimeout(vrijeme);zamjenisliku();">
+<input type="button" value="japan slide show" onClick="clearTimeout(vrijeme);">
+</FORM>
+<img name="mojaslika2" src="japan.jpg" height="300">
+<FORM>
+<input type="button" value="Start slide show" onClick="clearTimeout(vrijeme2);zamjenisliku2();">
+<input type="button" value="japan slide show" onClick="clearTimeout(vrijeme2);">
+</FORM>
+</center>
+</body>
+</html>
