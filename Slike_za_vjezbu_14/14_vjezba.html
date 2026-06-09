@@ -1,85 +1,53 @@
 <HTML>
 <HEAD>
-<title>Vježba 14</title>
-<style>
-BODY {
-            background-color: black;
-            margin: 20px;
+<TITLE>Vježba 14</TITLE>
+<STYLE>
+        BODY {
+            background-color:#FFFFFF;
         }
-button {
-            padding: 8px 15px;
-            margin-right: 10px;
-            cursor: pointer;
-            background-color: white;
-            color: black;
-            border: 1px solid black;
-            font-size: 16px;
-        }
-.box {
+		
+        .slika {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-        }
-#div1 {
-            background-image: url('1.jpg');
-            top: 150px;
-            left: 100px;
+            width: 200px;
+            height: 200px;
             z-index: 1;
         }
-#div2 {
-            background-image: url('2.jpg');
-            top: 230px;
-            left: 180px;
-            z-index: 2;
-        }
-#div3 {
-            background-image: url('3.jpg');
-            top: 310px;
-            left: 260px;
-            z-index: 3;
-        }
-#div4 {
-            background-image: url('4.jpg');
-            top: 390px;
-            left: 440px;
-            z-index: 4;
-        }
-#div5 {
-            background-image: url('5.jpg');
-            top: 470px;
-            left: 580px;
-            z-index: 5;
-        }
-#div6 {
-            width: 440px;
-            height: 670px;
-            background-color: gray;
-            top: 170px;
-            left: 0px;
-            z-index: 0; 
-        }
-.box:hover {
+		
+        .slika:hover {
             z-index: 100;
         }
-</style>
+
+        #img1 { left: 100px; top: 100px; }
+        #img2 { left: 200px; top: 200px; }
+        #img3 { left: 300px; top: 300px; }
+        #img4 { left: 400px; top: 400px; }
+        #img5 { left: 500px; top: 500px; }
+
+        button {
+            padding: 5px 15px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+</STYLE>
 </HEAD>
 <BODY>
-<button onclick="pomakni(20)">Pomakni desno</button>
-<button onclick="pomakni(-20)">Pomakni lijevo</button>
-    <div id="div1" class="box"></div>
-    <div id="div2" class="box"></div>
-    <div id="div3" class="box"></div>
-    <div id="div4" class="box"></div>
-    <div id="div5" class="box"></div>
-    <div id="div6" class="box"></div>
-<script>
-let siviPozicijaLeft = 0;
-function pomakni(korak) {
-            siviPozicijaLeft += korak;
-            document.getElementById('div6').style.left = siviPozicijaLeft + 'px';
+    <button onclick="pomakni(-20)">Pomakni lijevo!!</button>
+    <button onclick="pomakni(20)">Pomakni desno!!</button>
+
+    <div id="sivi" style="position:absolute; left:50px; top:300px; width:350px; height:400px; background-color:gray;"></div>
+
+    <div><img id="img1" class="slika" src="1.jpg"></div>
+    <div><img id="img2" class="slika" src="2.jpg"></div>
+    <div><img id="img3" class="slika" src="3.jpg"></div>
+    <div><img id="img4" class="slika" src="4.jpg"></div>
+    <div><img id="img5" class="slika" src="5.jpg"></div>
+
+<SCRIPT>
+        function pomakni(korak) {
+            const sivi = document.getElementById('sivi');
+            const trenutniLeft = parseInt(sivi.style.left) || 0;
+            sivi.style.left = (trenutniLeft + korak) + 'px';
         }
-</script>
+</SCRIPT>
 </BODY>
 </HTML>
